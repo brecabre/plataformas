@@ -14,7 +14,7 @@ func get_input():
 	var right = Input.is_action_pressed('ui_right')
 	var left = Input.is_action_pressed('ui_left')
 	var jump = Input.is_action_just_pressed('ui_select')
-	var arriba = Input.is_action_just_pressed('ui_up')
+	#var arriba = Input.is_action_just_pressed('ui_up')
 	var abajo = Input.is_action_pressed('ui_down')
 	if jump and is_on_floor() and not abajo:
         jumping = true
