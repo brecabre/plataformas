@@ -18,16 +18,18 @@ func get_input():
         jumping = true
         velocity.y = jump_speed
 	if right:
-        velocity.x += run_speed
+		velocity.x += run_speed
+		$Sprite.set_flip_h(false) 
 	if left:
-        velocity.x -= run_speed
+		velocity.x -= run_speed
+		$Sprite.set_flip_h(true) 
 	if abajo and jump:
 		activar_desactivar_colision()
 func _physics_process(delta):
 	
 	get_input()
 #	print (jumping)
-	# para que no se resbale por las cuestas
+	# para que no se resbale por las cuestas, no se p q funciona
 	if is_on_floor() and velocity.x == 0 and jumping == false:
 		velocity.y = 0	
 	else:	
