@@ -19,6 +19,13 @@ config/name="juego_plataformas_v1.0"
 run/main_scene="res://juego/pantallas/pantalla1/pantalla1.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=640
+window/size/height=480
+window/stretch/mode="viewport"
+window/stretch/aspect="keep_width"
+
 [rendering]
 
 environment/default_environment="res://default_env.tres"
