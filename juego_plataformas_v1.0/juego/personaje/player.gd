@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 export (int) var run_speed = 100
-export (int) var jump_speed = -500
+export (int) var jump_speed = -520
 export (int) var gravity = 1200
 
 var velocity = Vector2()
@@ -41,10 +41,10 @@ func _physics_process(delta):
 #	velocity = move_and_slide_with_snap(velocity, Vector2(0, -1), Vector2(0, 32))
 
 func activar_desactivar_colision():
-	set_collision_layer_bit(0,false)
+#	set_collision_layer_bit(0,false)
 	set_collision_mask_bit(0,false)
 	$Tiempo_activar_collision.start()
 
 func _on_Tiempo_activar_collision_timeout():
-	set_collision_layer_bit(0,true)
+#	set_collision_layer_bit(0,true)
 	set_collision_mask_bit(0,true)
