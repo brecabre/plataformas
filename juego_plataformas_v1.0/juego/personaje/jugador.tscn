@@ -3,11 +3,12 @@
 [ext_resource path="res://juego/personaje/player.gd" type="Script" id=1]
 [ext_resource path="res://juego/personaje/1 Pink_Monster/Pink_Monster.png" type="Texture" id=2]
 
-[sub_resource type="CapsuleShape2D" id=2]
-radius = 6.72541
-height = 14.9896
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 1.0
+height = 25.0
 
 [node name="jugador" type="KinematicBody2D"]
+position = Vector2( -0.250343, 0 )
 scale = Vector2( 2, 2 )
 collision_layer = 3
 collision_mask = 3
@@ -18,7 +19,7 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.916401, 2.43983 )
-shape = SubResource( 2 )
+shape = SubResource( 1 )
 
 [node name="Camera2D" type="Camera2D" parent="."]
 
