@@ -1,15 +1,16 @@
 extends KinematicBody2D
 
 export (int) var run_speed = 100
-export (int) var jump_speed = -520
+
 export (int) var gravity = 1200
 
 var velocity = Vector2()
-var jumping = false
+
 var right = false
 var left = true
-var jump = false
+#var jump = false
 var abajo = false
+
 func _physics_process(delta):
 #	print(get_tree().get_root().get_node("pantalla1/jugador").name)
 	velocity.x = 0
