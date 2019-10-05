@@ -79,7 +79,7 @@ shape = SubResource( 4 )
 one_way_collision = true
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="escenario_col_transpasable"]
-position = Vector2( 242.452, 151.716 )
+position = Vector2( 242.989, 151.78 )
 rotation = -0.462512
 shape = SubResource( 5 )
 one_way_collision = true

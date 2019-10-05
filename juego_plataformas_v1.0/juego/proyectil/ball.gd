@@ -9,19 +9,25 @@ func disparo(direccion_fuerza , gravedad):
 	_gravedad = gravedad
 	set_physics_process(true)
 
-var velocity =_movimiento
+var velocity = Vector2(100,0)
 var botes = 0
 export var maxbotes = 6
 
 func _physics_process(delta):
-
-	var collision_info = move_and_collide(velocity * delta)
-
-	if botes >= maxbotes:
-		queue_free()
-	else:
-		if collision_info:
-			velocity = velocity.bounce(collision_info.normal)
-			botes+=1
-			print("boing")
+	
+	if is_on_wall():
+		print("muro")
+	
+	if is_on_floor():
+		print("suelo")
+	
+#	var collision_info = move_and_collide(velocity * delta)
+#
+#	if botes >= maxbotes:
+#		queue_free()
+#	else:
+#		if collision_info:
+#			velocity = velocity.bounce(collision_info.normal)
+#			botes+=1
+#			print("boing")
 		
