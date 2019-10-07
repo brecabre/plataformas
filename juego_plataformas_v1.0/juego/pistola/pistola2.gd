@@ -6,7 +6,7 @@ onready var bala_spawn = get_node(bala_spawn_path)
 var disparando = false
 export (float) var bala_retardo = 0.5
 var esperar = 0
-
+var direccion = "left"
 
 func _ready():
 	set_process(true)
@@ -31,6 +31,6 @@ func un_fuego():
 
 func disparo():
 	var bala = bala_escena.instance()
-	bala.set_position(bala_spawn.get_position())
-#	bala.disparo(direccion_fuerza,bala_gravedad)
-	get_parent().add_child(bala)
+	bala.set_global_position(bala_spawn.get_global_position())
+#	bala.disparo(direccion_fuerza)
+	get_owner().get_parent().add_child(bala)

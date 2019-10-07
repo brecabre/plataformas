@@ -1,21 +1,25 @@
 extends KinematicBody2D
+onready var nodo_jugador_sprite = get_tree().get_root().get_node("pantalla1/jugador/Sprite")
+const UP = Vector2(0, -1)
+const GRAVITY = 200
+const SPEED = 200
 
-# Declare member variables here. Examples:
-# var a = 2
-var velocity = Vector2(200,0)
-var cambiar_direccion = false
-var gravity = 100
-# Called when the node enters the scene tree for the first time.
+var motion = Vector2()
+var left = Vector2(-1, 0)
+var right = Vector2(1, 0)
+var direction  = left
 func _ready():
-	pass # Replace with function body.
-
+	if nodo_jugador_sprite.is_flipped_h() :
+		direction = left
+	else:
+		direction = right
 func _physics_process(delta):
-	velocity.y += gravity * delta
 	
-	
+	motion.y += GRAVITY*delta
+	motion.x = direction.x * SPEED
+	motion = move_and_slide_with_snap(motion, UP, Vector2(0, 32)) 
 	if is_on_wall():
-		velocity.x *= -1
-		
-	# snap 32 pixels down
-	move_and_slide_with_snap(velocity, Vector2(0, 1), Vector2(0, 32))
-#	move_and_slide(velocity,Vector2(0,-1))	
+		if direction == left:
+			direction = right
+		elif direction == right:
+        	direction = left

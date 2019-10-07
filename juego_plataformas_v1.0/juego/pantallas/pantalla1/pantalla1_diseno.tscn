@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://juego/pantallas/pantalla1/imagenes/tileset1_1.tres" type="TileSet" id=1]
 [ext_resource path="res://juego/pantallas/pantalla1/imagenes/australia.jpg" type="Texture" id=2]
@@ -10,39 +10,36 @@ extents = Vector2( 71.046, 8 )
 extents = Vector2( 45, 8 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 96.1068, 7.31824 )
-
-[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 55.366, 8 )
 
-[sub_resource type="RectangleShape2D" id=5]
-extents = Vector2( 55, 8 )
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 56.4321, 8 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 17.3406, 8 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 14.8339, 8 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 16.4778, 8 )
 
-[sub_resource type="RectangleShape2D" id=9]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 22.6673, 8 )
+
+[sub_resource type="RectangleShape2D" id=9]
+extents = Vector2( 112.758, 8 )
 
 [sub_resource type="RectangleShape2D" id=10]
 extents = Vector2( 8, 12 )
 
 [sub_resource type="RectangleShape2D" id=11]
-extents = Vector2( 8, 12 )
-
-[sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 161.543, 11.4036 )
 
-[sub_resource type="RectangleShape2D" id=13]
+[sub_resource type="RectangleShape2D" id=12]
 extents = Vector2( 10, 148.088 )
 
-[sub_resource type="RectangleShape2D" id=14]
+[sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 184.332, 10 )
 
 [node name="pantalla1_diseno" type="Node2D"]
@@ -67,40 +64,38 @@ position = Vector2( 159.783, 128 )
 shape = SubResource( 2 )
 one_way_collision = true
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="escenario_col_transpasable"]
-position = Vector2( 94.0899, 176.476 )
-shape = SubResource( 3 )
-one_way_collision = true
-
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="escenario_col_transpasable"]
 position = Vector2( 82.2876, 103.719 )
 rotation = -0.471239
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 one_way_collision = true
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="escenario_col_transpasable"]
-position = Vector2( 242.989, 151.78 )
-rotation = -0.462512
-shape = SubResource( 5 )
-one_way_collision = true
+position = Vector2( 242.902, 152.413 )
+rotation = -0.465503
+shape = SubResource( 4 )
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="escenario_col_transpasable"]
-position = Vector2( 305.442, 128.013 )
-shape = SubResource( 6 )
-one_way_collision = true
+position = Vector2( 307.152, 127.55 )
+shape = SubResource( 5 )
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="escenario_col_transpasable"]
 position = Vector2( 305.27, 176.483 )
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 one_way_collision = true
 
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="escenario_col_transpasable"]
 position = Vector2( 16.3532, 127.71 )
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 one_way_collision = true
 
 [node name="CollisionShape2D9" type="CollisionShape2D" parent="escenario_col_transpasable"]
 position = Vector2( 22.3378, 64.1591 )
+shape = SubResource( 8 )
+one_way_collision = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="escenario_col_transpasable"]
+position = Vector2( 81.6136, 178.348 )
 shape = SubResource( 9 )
 one_way_collision = true
 
@@ -113,31 +108,27 @@ collision_mask = 0
 position = Vector2( 135.995, 83.4299 )
 shape = SubResource( 10 )
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="escenario_col_no_transpa"]
-position = Vector2( 184, 132 )
-shape = SubResource( 11 )
-
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="escenario_col_no_transpa"]
 position = Vector2( 159.783, 227.101 )
-shape = SubResource( 12 )
+shape = SubResource( 11 )
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="escenario_col_no_transpa"]
 position = Vector2( -6.38612, 115.088 )
-shape = SubResource( 13 )
+shape = SubResource( 12 )
 
 [node name="CollisionShape2D5" type="CollisionShape2D" parent="escenario_col_no_transpa"]
 position = Vector2( 325.161, 114.668 )
-shape = SubResource( 13 )
+shape = SubResource( 12 )
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="escenario_col_no_transpa"]
 position = Vector2( 160.865, -39.3373 )
-shape = SubResource( 14 )
+shape = SubResource( 13 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 
 [node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
 
 [node name="Sprite" type="Sprite" parent="ParallaxBackground/ParallaxLayer"]
-position = Vector2( 328.462, 216.507 )
+position = Vector2( 335.584, 216.19 )
 scale = Vector2( 0.810889, 0.810889 )
 texture = ExtResource( 2 )

@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export (int) var run_speed = 100
+export (int) var run_speed = 10
 
 export (int) var gravity = 1200
 
@@ -9,11 +9,11 @@ var velocity = Vector2()
 var right = false
 var left = true
 #var jump = false
-var abajo = false
+#var abajo = false
 
 func _physics_process(delta):
 #	print(get_tree().get_root().get_node("pantalla1/jugador").name)
-	velocity.x = 0
+	
 	
 	if right:
 		velocity.x += run_speed
@@ -21,8 +21,8 @@ func _physics_process(delta):
 	if left:
 		velocity.x -= run_speed
 		$Sprite.set_flip_h(true) 
-	if abajo:
-		activar_desactivar_colision()
+#	if abajo:
+#		activar_desactivar_colision()
 
 	velocity.y += gravity * delta
 	
@@ -39,15 +39,15 @@ func moverse():
 	if posicionenemigo.x <= 60:
 		left=false
 		right=true
-	elif posicionenemigo.x >= 400:
+	elif posicionenemigo.x >= 200:
 		right=false
 		left=true
 	
-func activar_desactivar_colision():
-	set_collision_layer_bit(0,false)
-	set_collision_mask_bit(0,false)
-	$Tiempo_activar_collision.start()
-
-func _on_Tiempo_activar_collision_timeout():
-	set_collision_layer_bit(0,true)
-	set_collision_mask_bit(0,true)
+#func activar_desactivar_colision():
+#	set_collision_layer_bit(0,false)
+#	set_collision_mask_bit(0,false)
+#	$Tiempo_activar_collision.start()
+#
+#func _on_Tiempo_activar_collision_timeout():
+#	set_collision_layer_bit(0,true)
+#	set_collision_mask_bit(0,true)

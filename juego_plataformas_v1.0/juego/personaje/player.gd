@@ -1,14 +1,16 @@
 extends KinematicBody2D
 
+
 export (int) var run_speed = 100
 export (int) var jump_speed = -520
 export (int) var gravity = 1200
-
+var direccion
 var velocity = Vector2()
 var jumping = false
 
 func get_input():
 	velocity.x = 0
+	
 	var right = Input.is_action_pressed('ui_right')
 	var left = Input.is_action_pressed('ui_left')
 	var jump = Input.is_action_just_pressed('ui_select')
@@ -20,9 +22,11 @@ func get_input():
 	if right:
 		velocity.x += run_speed
 		$Sprite.set_flip_h(false) 
+		
 	if left:
 		velocity.x -= run_speed
 		$Sprite.set_flip_h(true) 
+		
 	if abajo and jump:
 		activar_desactivar_colision()
 func _physics_process(delta):
@@ -36,7 +40,7 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 	if jumping and is_on_floor():
 		jumping = false
-	
+#	print(is_on_wall())
 	velocity = move_and_slide(velocity, Vector2(0, -1))
 #	velocity = move_and_slide_with_snap(velocity, Vector2(0, -1), Vector2(0, 32))
 

@@ -5,6 +5,7 @@
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 19.7789
+height = 11.5441
 
 [node name="enemigo1" type="KinematicBody2D"]
 collision_layer = 8
