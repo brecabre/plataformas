@@ -6,7 +6,7 @@ onready var bala_spawn = get_node(bala_spawn_path)
 var disparando = false
 export (float) var bala_retardo = 0.5
 var esperar = 0
-var direccion = "left"
+
 
 func _ready():
 	set_process(true)

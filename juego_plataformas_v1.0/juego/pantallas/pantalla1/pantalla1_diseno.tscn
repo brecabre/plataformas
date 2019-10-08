@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://juego/pantallas/pantalla1/imagenes/tileset1_1.tres" type="TileSet" id=1]
 [ext_resource path="res://juego/pantallas/pantalla1/imagenes/australia.jpg" type="Texture" id=2]
@@ -42,6 +42,9 @@ extents = Vector2( 10, 148.088 )
 [sub_resource type="RectangleShape2D" id=13]
 extents = Vector2( 184.332, 10 )
 
+[sub_resource type="RectangleShape2D" id=14]
+extents = Vector2( 8, 15 )
+
 [node name="pantalla1_diseno" type="Node2D"]
 scale = Vector2( 2, 2 )
 
@@ -74,10 +77,12 @@ one_way_collision = true
 position = Vector2( 242.902, 152.413 )
 rotation = -0.465503
 shape = SubResource( 4 )
+one_way_collision = true
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="escenario_col_transpasable"]
 position = Vector2( 307.152, 127.55 )
 shape = SubResource( 5 )
+one_way_collision = true
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="escenario_col_transpasable"]
 position = Vector2( 305.27, 176.483 )
@@ -123,6 +128,10 @@ shape = SubResource( 12 )
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="escenario_col_no_transpa"]
 position = Vector2( 160.865, -39.3373 )
 shape = SubResource( 13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="escenario_col_no_transpa"]
+position = Vector2( 184, 135 )
+shape = SubResource( 14 )
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
 

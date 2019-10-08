@@ -4,7 +4,7 @@ extends KinematicBody2D
 export (int) var run_speed = 100
 export (int) var jump_speed = -520
 export (int) var gravity = 1200
-var direccion
+#var direccion
 var velocity = Vector2()
 var jumping = false
 
@@ -52,3 +52,9 @@ func activar_desactivar_colision():
 func _on_Tiempo_activar_collision_timeout():
 #	set_collision_layer_bit(0,true)
 	set_collision_mask_bit(0,true)
+
+func _on_AreaDano_area_entered(area):
+	if area.is_in_group("enemigo"):
+	
+		globales_jugador.vidas_personaje -= 1
+		print(globales_jugador.vidas_personaje)

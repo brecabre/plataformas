@@ -16,8 +16,12 @@ _global_script_class_icons={
 [application]
 
 config/name="juego_plataformas_v1.0"
-run/main_scene="res://juego/pantallas/pantalla1/pantalla1.tscn"
+run/main_scene="res://juego/menus/menu_principal.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+globales_jugador="*res://juego/globales/globales_jugador.gd"
 
 [display]
 

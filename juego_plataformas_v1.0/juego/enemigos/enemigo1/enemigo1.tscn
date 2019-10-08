@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://juego/enemigos/enemigo1/enemigo1.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
@@ -6,6 +6,9 @@
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 19.7789
 height = 11.5441
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 32.131
 
 [node name="enemigo1" type="KinematicBody2D"]
 collision_layer = 8
@@ -17,3 +20,10 @@ texture = ExtResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
+
+[node name="AreaDanoEnemigo1" type="Area2D" parent="." groups=[
+"enemigo",
+]]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDanoEnemigo1"]
+shape = SubResource( 2 )

@@ -51,3 +51,4 @@ func moverse():
 #func _on_Tiempo_activar_collision_timeout():
 #	set_collision_layer_bit(0,true)
 #	set_collision_mask_bit(0,true)
+

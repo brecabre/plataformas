@@ -3,7 +3,6 @@ onready var nodo_jugador_sprite = get_tree().get_root().get_node("pantalla1/juga
 const UP = Vector2(0, -1)
 const GRAVITY = 200
 const SPEED = 200
-
 var motion = Vector2()
 var left = Vector2(-1, 0)
 var right = Vector2(1, 0)
