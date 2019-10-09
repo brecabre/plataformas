@@ -14,6 +14,6 @@ func _ready():
 
 var k
 func _on_Button_pressed():
-	k = get_tree().change_scene("res://juego/pantallas/pantalla1/pantalla1.tscn")
+	k = get_tree().change_scene("res://juego/Escena_principal/Principal.tscn")
     
     

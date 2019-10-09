@@ -21,7 +21,7 @@ config/icon="res://icon.png"
 
 [autoload]
 
-globales_jugador="*res://juego/globales/globales_jugador.gd"
+global="*res://juego/globales/global.gd"
 
 [display]
 

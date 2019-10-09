@@ -1,5 +1,5 @@
 extends KinematicBody2D
-onready var nodo_jugador_sprite = get_tree().get_root().get_node("pantalla1/jugador/Sprite")
+onready var nodo_jugador_sprite = get_tree().get_root().get_node("Principal/jugador/Sprite")
 const UP = Vector2(0, -1)
 const GRAVITY = 200
 const SPEED = 200

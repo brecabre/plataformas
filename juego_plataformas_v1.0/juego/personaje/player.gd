@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-
+var vidas_personaje = 3
 export (int) var run_speed = 100
 export (int) var jump_speed = -520
 export (int) var gravity = 1200
@@ -45,16 +45,17 @@ func _physics_process(delta):
 #	velocity = move_and_slide_with_snap(velocity, Vector2(0, -1), Vector2(0, 32))
 
 func activar_desactivar_colision():
-#	set_collision_layer_bit(0,false)
 	set_collision_mask_bit(0,false)
 	$Tiempo_activar_collision.start()
 
 func _on_Tiempo_activar_collision_timeout():
-#	set_collision_layer_bit(0,true)
 	set_collision_mask_bit(0,true)
 
 func _on_AreaDano_area_entered(area):
 	if area.is_in_group("enemigo"):
-	
-		globales_jugador.vidas_personaje -= 1
-		print(globales_jugador.vidas_personaje)
+		if vidas_personaje <=1:
+			print("muere")
+		else:
+			vidas_personaje -= 1
+			print("no muere",vidas_personaje)
+		

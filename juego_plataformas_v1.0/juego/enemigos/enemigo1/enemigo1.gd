@@ -52,3 +52,15 @@ func moverse():
 #	set_collision_layer_bit(0,true)
 #	set_collision_mask_bit(0,true)
 
+
+
+func _on_AreaDanoEnemigo1_area_entered(area):
+	var enemigos = get_tree().get_nodes_in_group("enemigo")
+	var escena_principal = get_tree().get_root().get_node("Principal")
+#	print (enemigos.size())
+	if area.is_in_group("proyectil"):
+		queue_free()
+		
+		if enemigos.size() <= 1:
+#			print("pasar de pantalla")
+			escena_principal.cambiar_pantalla()
