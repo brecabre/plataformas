@@ -29,10 +29,12 @@ func get_input():
 		
 	if abajo and jump:
 		activar_desactivar_colision()
+
 func _physics_process(delta):
 	
 	get_input()
 #	print (jumping)
+	
 	# para que no se resbale por las cuestas, no se p q funciona
 	if is_on_floor() and velocity.x == 0 and jumping == false:
 		velocity.y = 0	
@@ -52,10 +54,20 @@ func _on_Tiempo_activar_collision_timeout():
 	set_collision_mask_bit(0,true)
 
 func _on_AreaDano_area_entered(area):
+	var nodoPrincipal = get_tree().get_root().get_node("Principal")
+	var nodoAnimacion = get_tree().get_root().get_node("Principal/Control/LabelGameOver/AnimationPlayer2")
 	if area.is_in_group("enemigo"):
 		if vidas_personaje <=1:
+			#poner animacion de morir y game over
+			nodoAnimacion.play("animacion_gameover")
+			
+#			queue_free()
+			
 			print("muere")
 		else:
 			vidas_personaje -= 1
+			# meter la animacion de morirse y ponerlo en el punto salida
+			# parpadeo inmunidad
+			nodoPrincipal.personaje_salida($".")
 			print("no muere",vidas_personaje)
 		

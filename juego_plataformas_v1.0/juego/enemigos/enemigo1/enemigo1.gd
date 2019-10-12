@@ -27,11 +27,7 @@ func _physics_process(delta):
 	velocity.y += gravity * delta
 	
 	velocity = move_and_slide(velocity, Vector2(0, -1))
-#	velocity = move_and_slide_with_snap(velocity, Vector2(0, -1), Vector2(0, 32))
-#func perseguir():
-#	var nodojugador = get_tree().get_root().get_node("pantalla1/jugador")
-#	var posicionjugador = nodojugador
-#	pass
+#	
 	moverse()
 func moverse():
 	var posicionenemigo = get_position()  
@@ -56,11 +52,13 @@ func moverse():
 
 func _on_AreaDanoEnemigo1_area_entered(area):
 	var enemigos = get_tree().get_nodes_in_group("enemigo")
-	var escena_principal = get_tree().get_root().get_node("Principal")
+	var nodoTimer = get_tree().get_root().get_node("Principal/Timer_entre_pantallas")
 #	print (enemigos.size())
 	if area.is_in_group("proyectil"):
 		queue_free()
-		
 		if enemigos.size() <= 1:
 #			print("pasar de pantalla")
-			escena_principal.cambiar_pantalla()
+			nodoTimer.start()
+			
+	
+			

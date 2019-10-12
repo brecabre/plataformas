@@ -12,6 +12,3 @@ position = Vector2( 390.802, 398.85 )
 
 [node name="enemigo2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 302.897, 105.249 )
-
-[node name="punto_salida" type="Position2D" parent="."]
-position = Vector2( 40.7246, 406.218 )

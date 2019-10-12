@@ -1,41 +1,72 @@
 extends Node2D
 
-# Declare member variables here. Examples:
-# var a = 2
-#onready var escena = preload("res://juego/pantallas/pantalla1/pantalla1.tscn").instance()
-#onready var progreso = 1
+
 var pantalla = 1
-onready var personaje = preload("res://juego/personaje/jugador.tscn").instance()
-#onready var escena = load("res://juego/pantallas/pantalla" + str(pantalla) + "/pantalla" + str(pantalla) +".tscn").instance()
-onready var escena = load("res://juego/pantallas/pantalla" + str(pantalla) + "/pantalla" + str(pantalla) +".tscn").instance()
-# Called when the node enters the scene tree for the first time.
+var personaje = load("res://juego/personaje/jugador.tscn")
+
+var escena = load("res://juego/pantallas/pantalla1/pantalla1.tscn").instance()
+
 func _ready():
+	
 	cargar_escenario() 
 	cargar_jugador()
 
+func _input(event):
+	if event.is_action_pressed("pausa"):
+		if get_tree().is_paused():
+			get_tree().paused = false
+			print("con pausa")
+		else:
+			get_tree().paused = true
+			print(get_tree().is_paused())
+
 func cargar_escenario():
-	
 	var node = escena
 	add_child(node)
 
-	
+func personaje_salida(node):
+	var posicion_salida = get_node("punto_salida")
+	node.set_global_position(posicion_salida.get_global_position())
+
 func cargar_jugador():
-	var node = personaje
-	var posicion = escena.get_node("punto_salida")
-	node.set_global_position(posicion.get_global_position())
+	var node = personaje.instance()
+	personaje_salida(node)
 	add_child(node)
 	
 func cambiar_pantalla():
+	# quitar escena actual 
 	
-	# Remove the current level
-	var level = get_tree().get_root().get_node("Principal/pantalla1")
-	get_tree().get_root().get_node("Principal/pantalla1").remove_child(level)
-	level.call_deferred("free")
-	
+	var level = get_node("pantalla" + str(pantalla))
+	level.queue_free()
+
 	# Add the next level
-#	var node = escena
-#	add_child(node)
-	
-	var next_level_resource = load("res://juego/pantallas/pantalla2/pantalla2.tscn")
+	pantalla+=1
+	var next_level_resource = load("res://juego/pantallas/pantalla" + str(pantalla) + "/pantalla" + str(pantalla) +".tscn")
 	var next_level = next_level_resource.instance()
-	add_child(next_level)
+	call_deferred("add_child",next_level)
+	personaje_salida($jugador)
+
+# variable para evitar error de valor devuelto no utilizado por change_scene
+var variable
+func gameover():
+	
+	
+	variable = get_tree().change_scene("res://juego/menus/menu_principal.tscn")
+	print(get_tree().change_scene("res://juego/menus/menu_principal.tscn"))
+
+
+func _on_Timer_entre_pantallas_timeout():
+	
+	$Control/LabelNextLevel/AnimationPlayer.play("next_level_anima")
+
+
+
+func _on_AnimationPlayer_animation_finished(next_level_anima):
+	next_level_anima = $Control/LabelNextLevel.hide()
+	cambiar_pantalla()
+
+
+
+
+func _on_AnimationPlayer2_animation_finished(anim_name):
+	anim_name = gameover()
