@@ -1,12 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://juego/personaje/player.gd" type="Script" id=1]
+[ext_resource path="res://juego/personaje/jugador.gd" type="Script" id=1]
 [ext_resource path="res://juego/personaje/1 Pink_Monster/Pink_Monster.png" type="Texture" id=2]
-[ext_resource path="res://juego/pistola/pistola.tscn" type="PackedScene" id=3]
 
 [sub_resource type="CapsuleShape2D" id=1]
-radius = 1.0
-height = 53.848
+radius = 3.61039
+height = 45.8934
 
 [sub_resource type="CapsuleShape2D" id=2]
 radius = 13.8893
@@ -33,9 +32,6 @@ shape = SubResource( 1 )
 [node name="Tiempo_activar_collision" type="Timer" parent="."]
 process_mode = 0
 wait_time = 0.11
-
-[node name="pistola" parent="." instance=ExtResource( 3 )]
-scale = Vector2( 0.2, 0.2 )
 
 [node name="AreaDano" type="Area2D" parent="."]
 collision_mask = 1024

@@ -1,8 +1,23 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://juego/pistola/pistola2.gd" type="Script" id=1]
+[ext_resource path="res://juego/pistola/pistola.gd" type="Script" id=1]
 [ext_resource path="res://juego/proyectil/ball.tscn" type="PackedScene" id=2]
 [ext_resource path="res://juego/pistola/Gun.png" type="Texture" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "rayo"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:polygon")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ PoolVector2Array( 0.337421, -0.203716, 33.0612, -10.3871, 33.0612, 14.1063 ), PoolVector2Array( 0.337421, -0.203716, 245.338, -54.7086, 247.67, 40.9324 ) ]
+}
 
 [node name="pistola" type="Node2D"]
 script = ExtResource( 1 )
@@ -14,3 +29,13 @@ scale = Vector2( 0.2, 0.2 )
 texture = ExtResource( 3 )
 
 [node name="Position2D" type="Position2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="." groups=[
+"sorver",
+]]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+polygon = PoolVector2Array( 0.337421, -0.203716, 33.0612, -10.3871, 33.0612, 14.1063 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Area2D/CollisionPolygon2D"]
+anims/rayo = SubResource( 1 )

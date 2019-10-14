@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-var vidas_personaje = 3
+var vidas_personaje = 100
 export (int) var run_speed = 100
 export (int) var jump_speed = -520
 export (int) var gravity = 1200

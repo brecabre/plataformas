@@ -1,64 +1,76 @@
 extends KinematicBody2D
 
-export (int) var run_speed = 10
+export (int) var run_speed = 5
 
 export (int) var gravity = 1200
 
 var velocity = Vector2()
-
+var aturdido = false
 var right = false
 var left = true
-#var jump = false
-#var abajo = false
+#var jumping = false
 
+
+	
 func _physics_process(delta):
-#	print(get_tree().get_root().get_node("pantalla1/jugador").name)
-	
-	
+	var posicionenemigo = get_position()
 	if right:
 		velocity.x += run_speed
 		$Sprite.set_flip_h(false) 
 	if left:
 		velocity.x -= run_speed
 		$Sprite.set_flip_h(true) 
-#	if abajo:
-#		activar_desactivar_colision()
+
 
 	velocity.y += gravity * delta
 	
-	velocity = move_and_slide(velocity, Vector2(0, -1))
-#	
-	moverse()
-func moverse():
-	var posicionenemigo = get_position()  
+	moverse(posicionenemigo)
+#	print (jumping)
+	
+	# para que no se resbale por las cuestas, no se p q funciona
+#	if is_on_floor() and velocity.x == 0 and jumping == false:
+#		velocity.y = 0	
+#	else:	
+	velocity.y += gravity * delta
+#	if jumping and is_on_floor():
+#		jumping = false
+#	print(is_on_wall())
+#	velocity = move_and_slide(velocity, Vector2(0, -1))
+#	# snap 32 pixels down
+	velocity = move_and_slide_with_snap(velocity, Vector2(0, -1), Vector2(0, 46)) 
+	
+func moverse(arg):
+	  
 #	print(posicionenemigo.x)
-	if posicionenemigo.x <= 60:
+	if arg.x <= 60:
 		left=false
 		right=true
-	elif posicionenemigo.x >= 200:
+	elif arg.x >= 200:
 		right=false
 		left=true
-	
-#func activar_desactivar_colision():
-#	set_collision_layer_bit(0,false)
-#	set_collision_mask_bit(0,false)
-#	$Tiempo_activar_collision.start()
-#
-#func _on_Tiempo_activar_collision_timeout():
-#	set_collision_layer_bit(0,true)
-#	set_collision_mask_bit(0,true)
 
 
 
 func _on_AreaDanoEnemigo1_area_entered(area):
 	var enemigos = get_tree().get_nodes_in_group("enemigo")
+	var nodoPrincipal = get_tree().get_root().get_node("Principal")
 	var nodoTimer = get_tree().get_root().get_node("Principal/Timer_entre_pantallas")
 #	print (enemigos.size())
 	if area.is_in_group("proyectil"):
 		queue_free()
 		if enemigos.size() <= 1:
-#			print("pasar de pantalla")
-			nodoTimer.start()
-			
-	
-			
+			if nodoPrincipal.numero_pantallas == nodoPrincipal.pantalla:
+				nodoPrincipal.get_node("Control/Labelwin").show()
+				print("win")
+			else:
+				
+				nodoTimer.start()
+	if area.is_in_group("aspiradora"):
+		print("ssiiiiii    aspiradoraaaaaaa")
+		aturdido = true
+		
+
+func _on_AreaDanoEnemigo1_area_exited(area):
+	if area.is_in_group("aspiradora"):
+		print("noooo aspiradoraaaaaaa")
+		aturdido = false

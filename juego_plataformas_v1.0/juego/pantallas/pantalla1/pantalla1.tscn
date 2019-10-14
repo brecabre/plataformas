@@ -8,7 +8,4 @@
 [node name="pantalla1_diseno" parent="." instance=ExtResource( 1 )]
 
 [node name="enemigo1" parent="." instance=ExtResource( 2 )]
-position = Vector2( 390.802, 398.85 )
-
-[node name="enemigo2" parent="." instance=ExtResource( 2 )]
-position = Vector2( 302.897, 105.249 )
+position = Vector2( 349.069, 104.721 )

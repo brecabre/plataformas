@@ -1,6 +1,6 @@
 extends Node2D
 
-
+var numero_pantallas
 var pantalla = 1
 var personaje = load("res://juego/personaje/jugador.tscn")
 
@@ -8,6 +8,7 @@ var escena = load("res://juego/pantallas/pantalla1/pantalla1.tscn").instance()
 
 func _ready():
 	
+	numero_pantallas = 2
 	cargar_escenario() 
 	cargar_jugador()
 

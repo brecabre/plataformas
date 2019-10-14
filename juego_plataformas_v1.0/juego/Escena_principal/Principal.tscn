@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://juego/Escena_principal/Principal.gd" type="Script" id=1]
 [ext_resource path="res://juego/tipos/letraspixel1.TTF" type="DynamicFontData" id=2]
@@ -43,6 +43,10 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 5, 6, 7, 8, 8 ]
 }
 
+[sub_resource type="DynamicFont" id=5]
+size = 100
+font_data = ExtResource( 2 )
+
 [node name="Principal" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -79,6 +83,15 @@ percent_visible = 0.0
 
 [node name="AnimationPlayer2" type="AnimationPlayer" parent="Control/LabelGameOver"]
 anims/animacion_gameover = SubResource( 4 )
+
+[node name="Labelwin" type="Label" parent="Control"]
+visible = false
+margin_left = 205.419
+margin_top = 181.361
+margin_right = 422.419
+margin_bottom = 282.361
+custom_fonts/font = SubResource( 5 )
+text = "win"
 [connection signal="timeout" from="Timer_entre_pantallas" to="." method="_on_Timer_entre_pantallas_timeout"]
 [connection signal="animation_finished" from="Control/LabelNextLevel/AnimationPlayer" to="." method="_on_AnimationPlayer_animation_finished"]
 [connection signal="animation_finished" from="Control/LabelGameOver/AnimationPlayer2" to="." method="_on_AnimationPlayer2_animation_finished"]
