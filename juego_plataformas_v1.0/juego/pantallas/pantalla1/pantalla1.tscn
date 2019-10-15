@@ -9,3 +9,6 @@
 
 [node name="enemigo1" parent="." instance=ExtResource( 2 )]
 position = Vector2( 349.069, 104.721 )
+
+[node name="enemigo2" parent="." instance=ExtResource( 2 )]
+position = Vector2( 471.046, 389.764 )

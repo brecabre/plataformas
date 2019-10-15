@@ -21,10 +21,9 @@ texture = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
-[node name="AreaDanoEnemigo1" type="Area2D" parent="."]
-visible = false
+[node name="AreaDanoEnemigo1" type="Area2D" parent="." groups=[
+"enemigo",
+]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDanoEnemigo1"]
 shape = SubResource( 3 )
-[connection signal="area_entered" from="AreaDanoEnemigo1" to="." method="_on_AreaDanoEnemigo1_area_entered"]
-[connection signal="area_exited" from="AreaDanoEnemigo1" to="." method="_on_AreaDanoEnemigo1_area_exited"]

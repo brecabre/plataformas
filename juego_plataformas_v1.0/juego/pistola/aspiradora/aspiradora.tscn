@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://juego/pistola/aspiradora/aspiradora.gd" type="Script" id=1]
 [ext_resource path="res://juego/pistola/aspiradora/aspiradora.png" type="Texture" id=2]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 50.8897
 
 [node name="aspiradora" type="Node2D"]
 script = ExtResource( 1 )
@@ -15,8 +18,10 @@ texture = ExtResource( 2 )
 [node name="AreaAspira" type="Area2D" parent="." groups=[
 "aspiradora",
 ]]
-rotation = 3.14159
-collision_layer = 64
+collision_layer = 128
 
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="AreaAspira"]
-polygon = PoolVector2Array( 0.157631, -1.2739, 138.561, -37.4806, 138.269, 37.5607 )
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AreaAspira"]
+position = Vector2( 99.9738, 1.95071 )
+shape = SubResource( 1 )
+[connection signal="area_entered" from="AreaAspira" to="." method="_on_AreaAspira_area_entered"]
+[connection signal="area_exited" from="AreaAspira" to="." method="_on_AreaAspira_area_exited"]
