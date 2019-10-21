@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Drums - Bouncy.wav-0928c085d27a5792e1cea0ea5a445ed0.sample"
+
+[deps]
+
+source_file="res://juego/musica/Drums - Bouncy.wav"
+dest_files=[ "res://.import/Drums - Bouncy.wav-0928c085d27a5792e1cea0ea5a445ed0.sample" ]
+
+[params]
+
+force/8_bit=true
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=true
+compress/mode=0

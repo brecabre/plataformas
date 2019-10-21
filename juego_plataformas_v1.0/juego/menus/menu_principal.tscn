@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://juego/menus/menu_principal.gd" type="Script" id=1]
 [ext_resource path="res://icon.png" type="Texture" id=2]
+[ext_resource path="res://juego/musica/Electric Guitar - Riff 2 [Dm].wav" type="AudioStream" id=3]
+[ext_resource path="res://juego/musica/Drums - Bouncy.wav" type="AudioStream" id=4]
 
 [node name="menu_principal" type="Node2D"]
 script = ExtResource( 1 )
@@ -17,4 +19,12 @@ margin_top = 126.014
 margin_right = 460.701
 margin_bottom = 193.014
 text = "start"
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+autoplay = true
+
+[node name="AudioStreamPlayer2D2" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+autoplay = true
 [connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

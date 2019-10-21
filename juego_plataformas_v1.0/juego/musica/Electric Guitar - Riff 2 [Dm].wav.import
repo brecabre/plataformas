@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/Electric Guitar - Riff 2 [Dm].wav-be7a888951b688de744586464590f7e9.sample"
+
+[deps]
+
+source_file="res://juego/musica/Electric Guitar - Riff 2 [Dm].wav"
+dest_files=[ "res://.import/Electric Guitar - Riff 2 [Dm].wav-be7a888951b688de744586464590f7e9.sample" ]
+
+[params]
+
+force/8_bit=true
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=true
+edit/normalize=true
+edit/loop=true
+compress/mode=0

@@ -2,7 +2,7 @@ extends KinematicBody2D
 onready var animation_player : AnimationPlayer = $AnimationPlayer
 const UP = Vector2(0, -1)
 const gravity = 300
-const SPEED = 100
+const SPEED = 75
 var velocity = Vector2()
 var left = Vector2(-1, 0)
 var right = Vector2(1, 0)
@@ -26,29 +26,26 @@ func _physics_process(delta):
 	if aspirado:
 		aspirando()
 		
-	else:
+	elif aspirado == false:
 		moverse() 
-	
+		$Timeraspirar.stop()
 
 func update_animation(velocity: Vector2) -> void:
-#	var animation 
+
 	var animation := "idle"
 	if abs(velocity.x) > 10.0:
 		$Sprite.flip_h = velocity.x > 0
 		
 		if aspirado:
 			animation = "animaspirado"
-#			
+			
+			
 		else:
 			animation = "andar"
 
-#	if not is_on_floor():
-#		animation = "jump" if velocity.y < 0 else "fall"
-
-#	if animation_player.current_animation != animation:
 		animation_player.play(animation)
 func moverse():
-	
+
 	if is_on_wall() and not aspirado:
 		if direction == left:
 			direction = right
@@ -56,6 +53,8 @@ func moverse():
 		elif direction == right:
 			direction = left
 			$Sprite.set_flip_h(false)
+	
+		
 	if direction == parado :
 		var random = randi()%2+1
 		if random == 1:
@@ -64,22 +63,15 @@ func moverse():
 			direction = right
 	
 func aspirando():
-#	var nodo_timeaspiradora = nodojugador.get_node("Timeraspirar")
 	var nodojugador = get_owner().get_parent().get_node("jugador")
-	var direccionAspirado = Vector2()
-	var posicion_jugador = nodojugador.get_global_position()
-	var posicion_enemigo = get_global_position()
-	direccionAspirado = (posicion_jugador - posicion_enemigo).normalized()
-#	print (nodojugador)
-#	if posicion_enemigo == posicion_jugador:
-		
-	direction = direccionAspirado 
-#	direction = parado
+	
+	
+	var posicion_aspiradora = nodojugador.get_node("aspiradora/Position2D").get_global_position()
+	var direccionaspirar = (posicion_aspiradora - get_global_position()).normalized()
+#	
+	direction = direccionaspirar
 
 
-
-func _funaspirado():
-
+func _on_Timeraspirar_timeout():
 	queue_free()
-
-
+	pass # Replace with function body.

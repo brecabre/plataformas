@@ -33,16 +33,18 @@ func _physics_process(delta: float) -> void:
 		snap = true
 	
 	if Input.is_action_pressed("abajo") and Input.is_action_just_pressed("jump"):
-		print("presiona_baja")
 		activar_desactivar_colision()
 	
 	update_animation(velocity)
 
 func update_animation(velocity: Vector2) -> void:
 #	var animation := "idle"
+	
 	if abs(velocity.x) > 10.0:
 		sprite.flip_h = velocity.x < 0
-#		animation = "run"
+		 
+#		
+#	animation = "run"
 
 #	if not is_on_floor():
 #		animation = "jump" if velocity.y < 0 else "fall"
