@@ -28,6 +28,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id=4]
 resource_name = "animaspirado"
+length = 1.2
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:region_rect")
 tracks/0/interp = 1
@@ -50,7 +51,7 @@ script = ExtResource( 1 )
 scale = Vector2( 2, 2 )
 texture = ExtResource( 2 )
 region_enabled = true
-region_rect = Rect2( 768, 24, 32, 48 )
+region_rect = Rect2( 960, 40, 31, 32 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 10 )
