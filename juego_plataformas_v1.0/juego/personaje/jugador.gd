@@ -41,8 +41,9 @@ func update_animation(velocity: Vector2) -> void:
 #	var animation := "idle"
 	
 	if abs(velocity.x) > 10.0:
+#		var estaflip = $Sprite.is_flipped_h()
 		sprite.flip_h = velocity.x < 0
-		 
+		$aspiradora.animacion_aspiradora(sprite.is_flipped_h())
 #		
 #	animation = "run"
 

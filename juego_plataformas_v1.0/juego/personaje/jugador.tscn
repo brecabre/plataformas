@@ -2,7 +2,8 @@
 
 [ext_resource path="res://juego/personaje/jugador.gd" type="Script" id=1]
 [ext_resource path="res://juego/personaje/1 Pink_Monster/Pink_Monster.png" type="Texture" id=2]
-[ext_resource path="res://juego/pistola/aspiradora/aspiradora.tscn" type="PackedScene" id=3]
+[ext_resource path="res://juego/aspiradora/aspiradora.tscn" type="PackedScene" id=3]
+
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 3.61039

@@ -47,6 +47,7 @@ extents = Vector2( 8, 15 )
 
 [node name="pantalla1_diseno" type="Node2D"]
 scale = Vector2( 2, 2 )
+z_index = -1
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )

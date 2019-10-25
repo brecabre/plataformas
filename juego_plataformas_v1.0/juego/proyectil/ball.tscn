@@ -1,7 +1,6 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=4 format=2]
 
-[ext_resource path="res://juego/proyectil/ball2.gd" type="Script" id=1]
-[ext_resource path="res://juego/enemigos/enemigo1/imagenes_enemigo_1/enemigo_1_sprites.png" type="Texture" id=2]
+[ext_resource path="res://juego/proyectil/ball.gd" type="Script" id=1]
 
 [sub_resource type="Animation" id=1]
 resource_name = "rodando"
@@ -20,7 +19,7 @@ tracks/0/keys = {
 "values": [ Rect2( 996, 36, 40, 40 ), Rect2( 1036, 36, 36, 40 ), Rect2( 1072, 36, 36, 40 ), Rect2( 1108, 36, 32, 40 ), Rect2( 1140, 36, 36, 40 ), Rect2( 1176, 36, 32, 40 ), Rect2( 1208, 36, 36, 40 ), Rect2( 1244, 36, 32, 40 ), Rect2( 1276, 36, 36, 40 ) ]
 }
 
-[sub_resource type="CircleShape2D" id=3]
+[sub_resource type="CircleShape2D" id=2]
 radius = 20.0
 
 [node name="ball" type="KinematicBody2D"]
@@ -30,9 +29,8 @@ script = ExtResource( 1 )
 
 [node name="Sprite" type="Sprite" parent="."]
 scale = Vector2( 2, 2 )
-texture = ExtResource( 2 )
 region_enabled = true
-region_rect = Rect2( 1276, 36, 36, 40 )
+region_rect = Rect2( 996, 36, 40, 40 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Sprite"]
 autoplay = "rodando"
@@ -43,7 +41,7 @@ anims/rodando = SubResource( 1 )
 ]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2( 2, 2 )

@@ -4,6 +4,16 @@
 [ext_resource path="res://juego/pantallas/pantalla2/pantalla2_diseno.tscn" type="PackedScene" id=2]
 [ext_resource path="res://juego/enemigos/enemigo1/enemigo1.tscn" type="PackedScene" id=3]
 
+
+
+
+
+
+
+
+
+
+
 [node name="pantalla2" type="Node2D"]
 z_index = -1
 

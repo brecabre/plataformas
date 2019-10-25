@@ -12,15 +12,14 @@ func _ready():
 	cargar_escenario() 
 	cargar_jugador()
 
-func _input(event):
-	if event.is_action_pressed("pausa"):
-		if get_tree().is_paused():
-			get_tree().paused = false
-			print("con pausa")
-		else:
-			get_tree().paused = true
-			print(get_tree().is_paused())
-
+#func _input(event):
+#	if event.is_action_pressed("pausa"):
+#		if get_tree().get_root().get_node("Principal.tscn").is_paused():
+#			get_tree().get_root().get_node("Principal.tscn").paused = false
+#
+#		else:
+#			get_tree().get_root().get_node("Principal.tscn").paused = true
+			
 func cargar_escenario():
 	var node = escena
 	add_child(node)
