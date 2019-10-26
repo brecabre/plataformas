@@ -11,5 +11,17 @@
 [node name="enemigo1_base2" parent="." instance=ExtResource( 2 )]
 position = Vector2( 302.004, 84.3435 )
 
+[node name="enemigo1_base4" parent="." instance=ExtResource( 2 )]
+position = Vector2( 104.391, 363.579 )
+
+[node name="enemigo1_base3" parent="." instance=ExtResource( 2 )]
+position = Vector2( 476.705, 375.035 )
+
 [node name="enemigo1_base" parent="." instance=ExtResource( 3 )]
 position = Vector2( 261.652, 373.451 )
+
+[node name="enemigo1_base5" parent="." instance=ExtResource( 3 )]
+position = Vector2( 367.618, 372.019 )
+
+[node name="enemigo1_base6" parent="." instance=ExtResource( 3 )]
+position = Vector2( 546.615, 370.587 )
