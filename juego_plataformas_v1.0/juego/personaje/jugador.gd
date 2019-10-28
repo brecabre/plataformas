@@ -9,7 +9,7 @@ export var move_speed := 250
 export var jump_force := 500
 export var gravity := 900
 export var slope_slide_threshold := 50.0
-
+var vidas_personaje = 10
 var velocity := Vector2()
 func _physics_process(delta: float) -> void:
 	var direction_x := Input.get_action_strength("move_right") - Input.get_action_strength("move_left")
@@ -59,3 +59,21 @@ func activar_desactivar_colision():
 
 func _on_Tiempo_activar_collision_timeout():
 	set_collision_mask_bit(0,true)
+	
+func _on_AreaDano_area_entered(area):
+	var nodoPrincipal = get_tree().get_root().get_node("Principal")
+	var nodoAnimacion = get_tree().get_root().get_node("Principal/Control/LabelGameOver/AnimationPlayer2")
+	if area.is_in_group("enemigo"):
+		if vidas_personaje <=1:
+			#poner animacion de morir y game over
+			nodoAnimacion.play("animacion_gameover")
+			
+			queue_free()
+			
+			print("muere")
+		else:
+			vidas_personaje -= 1
+			# meter la animacion de morirse y ponerlo en el punto salida
+			# parpadeo inmunidad
+			nodoPrincipal.personaje_salida($".")
+			print("no muere",vidas_personaje)	

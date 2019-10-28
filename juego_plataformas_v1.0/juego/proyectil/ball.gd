@@ -17,10 +17,10 @@ func _ready():
 	
 	if nodo_jugador_sprite.is_flipped_h() :
 		direction = left
-		velocidad_giro = - 5
+		velocidad_giro = - 10
 	else:
 		direction = right
-		velocidad_giro = 5
+		velocidad_giro = 10
 
 func _physics_process(delta):
 	accum += delta * velocidad_giro
@@ -37,17 +37,17 @@ func _physics_process(delta):
 		else:
 			if direction == left:
 				direction = right
-				velocidad_giro = 5
+				velocidad_giro = 10
 			elif direction == right:
 				direction = left
-				velocidad_giro = -5
+				velocidad_giro = -10
 
 func dimensiones(tamano):
 	var shape = CircleShape2D.new()
 	shape.set_radius(tamano*5)
 	max_choques = tamano  
 	$CollisionShape2D.set_shape(shape) 
-
+	$Area2D/CollisionShape2D.set_shape(shape) 
 
 func anadir_sprites(sprite):
 	

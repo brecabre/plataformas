@@ -87,3 +87,8 @@ func _on_Timeraspirar_timeout():
 
 	queue_free()
 	pass # Replace with function body.
+
+
+func _on_AreaDanoEnemigo1_area_entered(area):
+	if area.is_in_group("proyectil"):
+		queue_free()

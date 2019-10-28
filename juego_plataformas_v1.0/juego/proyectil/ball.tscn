@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://juego/proyectil/ball.gd" type="Script" id=1]
 
@@ -19,9 +19,6 @@ tracks/0/keys = {
 "values": [ Rect2( 996, 36, 40, 40 ), Rect2( 1036, 36, 36, 40 ), Rect2( 1072, 36, 36, 40 ), Rect2( 1108, 36, 32, 40 ), Rect2( 1140, 36, 36, 40 ), Rect2( 1176, 36, 32, 40 ), Rect2( 1208, 36, 36, 40 ), Rect2( 1244, 36, 32, 40 ), Rect2( 1276, 36, 36, 40 ) ]
 }
 
-[sub_resource type="CircleShape2D" id=2]
-radius = 20.0
-
 [node name="ball" type="KinematicBody2D"]
 collision_layer = 16
 collision_mask = 3
@@ -41,7 +38,6 @@ anims/rodando = SubResource( 1 )
 ]]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-shape = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 scale = Vector2( 2, 2 )

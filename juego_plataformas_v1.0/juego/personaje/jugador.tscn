@@ -4,7 +4,6 @@
 [ext_resource path="res://juego/personaje/1 Pink_Monster/Pink_Monster.png" type="Texture" id=2]
 [ext_resource path="res://juego/aspiradora/aspiradora.tscn" type="PackedScene" id=3]
 
-
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 3.61039
 height = 45.8934
@@ -44,3 +43,4 @@ shape = SubResource( 2 )
 
 [node name="aspiradora" parent="." instance=ExtResource( 3 )]
 [connection signal="timeout" from="Tiempo_activar_collision" to="." method="_on_Tiempo_activar_collision_timeout"]
+[connection signal="area_entered" from="AreaDano" to="." method="_on_AreaDano_area_entered"]
