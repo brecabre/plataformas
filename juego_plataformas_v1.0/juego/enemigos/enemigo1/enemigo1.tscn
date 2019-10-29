@@ -64,11 +64,7 @@ shape = SubResource( 1 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDanoEnemigo1"]
 shape = SubResource( 2 )
 
-[node name="Timeraspirar" type="Timer" parent="."]
-process_mode = 0
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/andar = SubResource( 3 )
 anims/animaspirado = SubResource( 4 )
 [connection signal="area_entered" from="AreaDanoEnemigo1" to="." method="_on_AreaDanoEnemigo1_area_entered"]
-[connection signal="timeout" from="Timeraspirar" to="." method="_on_Timeraspirar_timeout"]
